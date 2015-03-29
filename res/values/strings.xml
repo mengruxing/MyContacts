@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">通讯录</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="action_example">Example action</string>
+    <string name="negative">取消</string>
+    <string name="positive">确认</string>
+    <string name="title_activity_import">导入联系人</string>
+    <string name="title_activity_explorer">浏览文件</string>
+    <string name="about">关于</string>
+    <string name="about_me">版本：1.0.1\n作者：蒙儒省\n邮箱：mengruxing@gmail.com\n\n软件说明：面向部门内部的通讯录软件，省去繁琐的逐个添加联系人的过程，直接从文本导入数据，同时保持自己手机通讯录的纯净，能让各部门内部人员快速建立联系关系。</string>
+    <string name="action_search">搜索联系人</string>
+    <string name="action_import">导入新分组</string>
+    <string name="action_clean">删除此分组</string>
+    <string name="action_about">关于</string>
+    <string name="textview_notes">说明：\n\t导入新分组会覆盖同名分组，不管新文件是否存在有效数据，请确保文件中内容格式规范\n\n关于编码格式：\n\t大多数的Windows系统默认采用GBK编码，而大多数的Linux系统默认采用UTF-8编码。</string>
+    <string name="textview_tablename">分组名称：</string>
+    <string name="textview_filepath">文件路径：</string>
+    <string name="textview_encoding">文件编码：</string>
+    <string name="button_explor">浏览</string>
+    <string name="back">确认返回</string>
+    <string name="stay">继续导入</string>
+    <string name="text_hint_table">组名不能有空格</string>
+    <string name="text_hint_filepath">右侧按钮可浏览 →</string>
+    <string name="table_empty">组名不能为空</string>
+    <string name="number_start">组名不能以数字开头</string>
+    <string name="check_file_path">请检查文件路径</string>
+    <string name="start_import">开始导入</string>
+    <string name="dialog_call">拨打电话</string>
+    <string name="dialog_sms">发送短信</string>
+    <string name="notable">当前无分组</string>
+    <string name="can_no_del">当前是所有分组，请逐个删除</string>
+    <string name="deleted"> 已删除</string>
+    <string name="complete">完成！</string>
+    <string name="complete_message">文件中的有用信息已全部分析完毕并导入到数据库中，返回可查看结果。</string>
+    <string name="import_failed">导入失败</string>
+    <string name="file_fault">文件不正确，请检查路径</string>
+
+</resources>
