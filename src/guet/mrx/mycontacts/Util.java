@@ -19,7 +19,7 @@ public class Util {
 			0xFFFFED3B, 0xFFFFC107, 0xFFFF9800, 0xFFFF5722, 0xFF795548,
 			0xFF9E9E9E, 0xFF607D8B };
 
-	public static boolean importToDB(Context context, String table,
+	public static boolean importFromTXT(Context context, String table,
 			String path, String encoding) throws IOException {
 		DAO dao = new DAO(context);
 		BufferedReader bufferedReader = new BufferedReader(

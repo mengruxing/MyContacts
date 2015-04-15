@@ -82,7 +82,7 @@ public class ImportActivity extends Activity implements OnClickListener {
 		encodingString = ENCODING[encodingSpinner.getSelectedItemPosition()];
 		if (isRightful()) {
 			try {
-				if (Util.importToDB(this, tableNameString, filePathString,
+				if (Util.importFromTXT(this, tableNameString, filePathString,
 						encodingString)) {
 					isDBChanged = 1;
 					new AlertDialog.Builder(this)
