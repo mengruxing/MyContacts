@@ -1,8 +1,8 @@
 package guet.mrx.mycontacts;
 
-
 import java.io.IOException;
 
+import jxl.read.biff.BiffException;
 import android.app.ActionBar;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -77,35 +77,49 @@ public class ImportActivity extends Activity implements OnClickListener {
 
 	private boolean startImport() {
 		tableNameString = tableNameEditText.getText().toString();
-		Log.i("debug", tableNameString);
 		filePathString = sd_root_path + filePathEditText.getText().toString();
-		encodingString = ENCODING[encodingSpinner.getSelectedItemPosition()];
+		Log.i("导入数据", tableNameString);
 		if (isRightful()) {
-			try {
-				if (Util.importFromTXT(this, tableNameString, filePathString,
-						encodingString)) {
+			if (Util.checkFilePath(filePathString, "txt")) {
+				try {
+					Util.importFromTXT(this, tableNameString, filePathString,
+							ENCODING[encodingSpinner.getSelectedItemPosition()]);
 					isDBChanged = 1;
-					new AlertDialog.Builder(this)
-							.setTitle(getString(R.string.complete))
-							.setMessage(getString(R.string.complete_message))
-							.setNegativeButton(R.string.back,
-									new DialogInterface.OnClickListener() {
-
-										@Override
-										public void onClick(
-												DialogInterface dialog,
-												int which) {
-											backToMain();
-										}
-									}).setPositiveButton(R.string.stay, null)
-							.show();
+					showSucceed();
+				} catch (IOException e) {
+					Toast.makeText(this, getString(R.string.import_failed),
+							Toast.LENGTH_SHORT).show();
 				}
-			} catch (IOException e) {
-				Toast.makeText(this, getString(R.string.import_failed),
-						Toast.LENGTH_SHORT).show();
+			}else if (Util.checkFilePath(filePathString, "xls")) {
+				try {
+					Util.importFromExcel(this, tableNameString, filePathString);
+					isDBChanged = 1;
+					showSucceed();
+				} catch (BiffException e) {
+					e.printStackTrace();
+				} catch (IOException e) {
+					e.printStackTrace();
+				}
+			}else {
+				Toast.makeText(this, getString(R.string.check_file_path), Toast.LENGTH_LONG).show();
 			}
 		}
 		return true;
+	}
+
+	private void showSucceed() {
+		new AlertDialog.Builder(this)
+				.setTitle(getString(R.string.complete))
+				.setMessage(getString(R.string.complete_message))
+				.setNegativeButton(R.string.back,
+						new DialogInterface.OnClickListener() {
+
+							@Override
+							public void onClick(DialogInterface dialog,
+									int which) {
+								backToMain();
+							}
+						}).setPositiveButton(R.string.stay, null).show();
 	}
 
 	private boolean isRightful() {
@@ -121,11 +135,6 @@ public class ImportActivity extends Activity implements OnClickListener {
 		}
 		if (Util.isStringLong(tableNameString.substring(0, 1))) {
 			Toast.makeText(this, getString(R.string.number_start),
-					Toast.LENGTH_SHORT).show();
-			return false;
-		}
-		if (!Util.checkFilePath(filePathString, "txt")) {
-			Toast.makeText(this, getString(R.string.check_file_path),
 					Toast.LENGTH_SHORT).show();
 			return false;
 		}
