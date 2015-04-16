@@ -79,8 +79,8 @@ public class Util {
 		int columns = sheet.getColumns();
 		String[][] tableStrings = new String[rows][columns];
 		int nameRow = 0, nameColumn = 0, numRow = 0, numColumn = 1;
-		for (int i = 0; i < rows; i++) {
-			for (int j = 0; j < columns; j++) {
+		for (int i = rows-1; i >=0; i--) {
+			for (int j = columns-1; j >=0; j--) {
 				Cell cell = sheet.getCell(j, i);
 				tableStrings[i][j] = cell.getContents();
 				System.out.print(tableStrings[i][j] + " ");
@@ -90,6 +90,8 @@ public class Util {
 					nameColumn = j;
 					break;
 				case "手机号码":
+				case "电话号码":
+				case "联系电话":
 					numRow = i;
 					numColumn = j;
 					break;
