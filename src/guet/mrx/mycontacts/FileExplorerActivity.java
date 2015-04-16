@@ -48,7 +48,7 @@ public class FileExplorerActivity extends ListActivity {
 			if (Util.isNormalDir(file)) {
 				items.add(file.getName());
 				paths.add(file.getPath());
-			} else if (Util.isFileFormat(file.getName(), "txt")) {
+			} else if (Util.isFileFormat(file.getName(), "txt") || Util.isFileFormat(file.getName(), "xls")) {
 				fileitems.add(file.getName());
 				filepaths.add(file.getPath());
 			}
