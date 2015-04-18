@@ -48,7 +48,7 @@ public class Util {
 		while ((lineText = bufferedReader.readLine()) != null) {
 			StringBuilder nameBuilder = new StringBuilder();
 			String number = "";
-			if (!lineText.isEmpty()) {
+			if ((!lineText.isEmpty())&&(lineText.charAt(0) != '#')) {
 				String[] strings = lineText.split(" +");// 目前过滤：空格
 				for (String string : strings) {
 					if (!isStringLong(string)) {
