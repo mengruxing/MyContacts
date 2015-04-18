@@ -92,6 +92,7 @@ public class Util {
 				case "手机号码":
 				case "电话号码":
 				case "联系电话":
+				case "联系方式":
 					numRow = i;
 					numColumn = j;
 					break;
